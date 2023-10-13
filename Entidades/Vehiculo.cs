@@ -7,7 +7,7 @@
         protected int añoFabricacion;
         protected ETipoCombustible tipoCombustible;
 
-        public string Marca 
+        public string Marca
         {
             get { return this.marca; }
             set { this.marca = value; }
@@ -22,7 +22,7 @@
             get { return this.añoFabricacion; }
             set { this.añoFabricacion = value; }
         }
-        public ETipoCombustible TipoCombustible 
+        public ETipoCombustible TipoCombustible
         {
             get { return this.TipoCombustible; }
             set { this.tipoCombustible = value; }
@@ -38,7 +38,8 @@
             this.añoFabricacion = añoFabricacion;
         }
 
-        public Vehiculo(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible) : this(marca, modelo, añoFabricacion)
+        public Vehiculo(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible) 
+            : this(marca, modelo, añoFabricacion)
         {
             this.tipoCombustible = tipoCombustible;
         }
@@ -51,7 +52,8 @@
 
         public override string ToString()
         {
-            return $"Marca: {Marca}, Modelo: {Modelo}, Año de Fabricación: {AñoFabricacion}, Tipo de Combustible: {TipoCombustible}";
+            return $"Marca: {Marca}, Modelo: {Modelo}, Año de Fabricación: {AñoFabricacion}, " +
+                $"Tipo de Combustible: {TipoCombustible}";
         }
 
         public override bool Equals(object? obj)
