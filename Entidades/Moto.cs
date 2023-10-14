@@ -45,7 +45,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return $"Moto - Marca: {Marca}, Modelo: {Modelo}, Año: {AñoFabricacion}, Combustible: {TipoCombustible}, Cilindrada: {cilindrada} cc, Tipo: {tipo}";
+            return $"Moto - Marca: {Marca}, Modelo: {Modelo}, Año: {AñoFabricacion}, Combustible: {TipoCombustible}, Cilindrada: {cilindrada} cc, Tipo: {tipoRuedas}";
         }
 
         public override bool Equals(object? obj)
