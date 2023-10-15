@@ -1,6 +1,6 @@
 ﻿namespace Formularios
 {
-    partial class FrmAuto
+    partial class FrmCamion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,92 +28,83 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label4 = new Label();
-            txtNumPuertas = new TextBox();
             label5 = new Label();
-            cbTraccion = new ComboBox();
+            label6 = new Label();
+            txtCargaMaxima = new TextBox();
+            txtNumEjes = new TextBox();
             SuspendLayout();
             // 
             // btnAceptar
             // 
-            btnAceptar.TabIndex = 9;
             btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.TabIndex = 10;
             btnCancelar.Click += btnCancelar_Click;
-            // 
-            // cbCombustible
-            // 
-            cbCombustible.ItemHeight = 15;
-            cbCombustible.TabIndex = 6;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(218, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(109, 15);
-            label4.TabIndex = 14;
-            label4.Text = "Numero de puertas";
-            // 
-            // txtNumPuertas
-            // 
-            txtNumPuertas.Location = new Point(218, 27);
-            txtNumPuertas.Name = "txtNumPuertas";
-            txtNumPuertas.Size = new Size(202, 23);
-            txtNumPuertas.TabIndex = 7;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(218, 71);
+            label5.Location = new Point(218, 9);
             label5.Name = "label5";
-            label5.Size = new Size(92, 15);
+            label5.Size = new Size(84, 15);
             label5.TabIndex = 16;
-            label5.Text = "Tipo de tracción";
+            label5.Text = "Carga maxima";
             // 
-            // cbTraccion
+            // label6
             // 
-            cbTraccion.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbTraccion.FormattingEnabled = true;
-            cbTraccion.Location = new Point(218, 89);
-            cbTraccion.Name = "cbTraccion";
-            cbTraccion.Size = new Size(202, 23);
-            cbTraccion.TabIndex = 8;
+            label6.AutoSize = true;
+            label6.Location = new Point(218, 71);
+            label6.Name = "label6";
+            label6.Size = new Size(90, 15);
+            label6.TabIndex = 17;
+            label6.Text = "Numero de ejes";
             // 
-            // FrmAuto
+            // txtCargaMaxima
+            // 
+            txtCargaMaxima.Location = new Point(218, 27);
+            txtCargaMaxima.Name = "txtCargaMaxima";
+            txtCargaMaxima.Size = new Size(200, 23);
+            txtCargaMaxima.TabIndex = 18;
+            // 
+            // txtNumEjes
+            // 
+            txtNumEjes.Location = new Point(218, 89);
+            txtNumEjes.Name = "txtNumEjes";
+            txtNumEjes.Size = new Size(200, 23);
+            txtNumEjes.TabIndex = 19;
+            // 
+            // FrmCamion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(432, 349);
-            Controls.Add(cbTraccion);
+            ClientSize = new Size(430, 349);
+            Controls.Add(txtNumEjes);
+            Controls.Add(txtCargaMaxima);
+            Controls.Add(label6);
             Controls.Add(label5);
-            Controls.Add(txtNumPuertas);
-            Controls.Add(label4);
-            Name = "FrmAuto";
+            Name = "FrmCamion";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agregar un auto";
-            Controls.SetChildIndex(cbCombustible, 0);
+            Text = "Form1";
             Controls.SetChildIndex(txtMarca, 0);
             Controls.SetChildIndex(txtModelo, 0);
             Controls.SetChildIndex(txtAñoFabricacion, 0);
             Controls.SetChildIndex(btnAceptar, 0);
             Controls.SetChildIndex(btnCancelar, 0);
-            Controls.SetChildIndex(label4, 0);
-            Controls.SetChildIndex(txtNumPuertas, 0);
+            Controls.SetChildIndex(cbCombustible, 0);
             Controls.SetChildIndex(label5, 0);
-            Controls.SetChildIndex(cbTraccion, 0);
+            Controls.SetChildIndex(label6, 0);
+            Controls.SetChildIndex(txtCargaMaxima, 0);
+            Controls.SetChildIndex(txtNumEjes, 0);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label4;
-        private TextBox txtNumPuertas;
         private Label label5;
-        private ComboBox cbTraccion;
+        private Label label6;
+        private TextBox txtCargaMaxima;
+        private TextBox txtNumEjes;
     }
 }

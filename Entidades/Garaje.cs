@@ -10,6 +10,16 @@ namespace Entidades
     {
         private List<Vehiculo> vehiculos;
 
+        public List<Vehiculo> Vehiculos
+        {
+            get { return vehiculos; }
+        }
+
+        public Garaje()
+        {
+            vehiculos = new List<Vehiculo>();
+        }
+
         public static Garaje operator +(Garaje g1, Vehiculo v1)
         {
             if (!g1.vehiculos.Contains(v1))

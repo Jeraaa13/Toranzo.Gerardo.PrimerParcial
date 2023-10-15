@@ -12,16 +12,16 @@ namespace Formularios
 {
     public partial class FrmTipo : Form
     {
-        private Entidades.Auto auto;
+        private Entidades.Vehiculo vehiculo;
         private string eleccion;
 
         public string Eleccion
         {
             get { return this.eleccion; }
         }
-        public Entidades.Auto Auto
+        public Entidades.Vehiculo Vehiculo
         {
-            get { return this.auto; }
+            get { return this.vehiculo; }
         }
         public FrmTipo()
         {
@@ -42,18 +42,34 @@ namespace Formularios
                 if(resultado == DialogResult.OK)
                 {
                     eleccion = "Auto";
-                    auto = frmauto.Auto;
+                    vehiculo = frmauto.Auto;
                     this.DialogResult = DialogResult.OK;
                 }
                 this.Hide();
             }
             else if(this.rdbCamion.Checked)
             {
-
+                FrmCamion frmcamion = new FrmCamion();
+                DialogResult resultado = frmcamion.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    eleccion = "Camion";
+                    vehiculo = frmcamion.Camion;
+                    this.DialogResult = DialogResult.OK;
+                }
+                this.Hide();
             }
             else if (this.rdbMoto.Checked)
             {
-
+                FrmMoto frmmoto = new FrmMoto();
+                DialogResult resultado = frmmoto.ShowDialog();
+                if (resultado == DialogResult.OK)
+                {
+                    eleccion = "Moto";
+                    vehiculo = frmmoto.Moto;
+                    this.DialogResult = DialogResult.OK;
+                }
+                this.Hide();
             }
             else
             {

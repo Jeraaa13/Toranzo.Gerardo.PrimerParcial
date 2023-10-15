@@ -22,3 +22,5 @@ C:\Users\gerar\source\repos\Toranzo.Gerardo\Formularios\obj\Debug\net6.0-windows
 C:\Users\gerar\source\repos\Toranzo.Gerardo\Formularios\obj\Debug\net6.0-windows\Formularios.FrmTipo.resources
 C:\Users\gerar\source\repos\Toranzo.Gerardo\Formularios\obj\Debug\net6.0-windows\Formularios.FrmAuto.resources
 C:\Users\gerar\source\repos\Toranzo.Gerardo\Formularios\obj\Debug\net6.0-windows\Formularios.FrmVehiculo.resources
+C:\Users\gerar\source\repos\Toranzo.Gerardo\Formularios\obj\Debug\net6.0-windows\Formularios.FrmMoto.resources
+C:\Users\gerar\source\repos\Toranzo.Gerardo\Formularios\obj\Debug\net6.0-windows\Formularios.FrmCamion.resources

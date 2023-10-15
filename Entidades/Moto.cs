@@ -7,6 +7,19 @@ namespace Entidades
         private int cilindrada;
         private ETipoRuedas tipoRuedas;
 
+        public int Cilindrada
+        {
+            get { return cilindrada; }
+            set { this.cilindrada = value; }
+        }
+
+        public ETipoRuedas TipoRuedas
+        {
+            get { return tipoRuedas; }
+            set { this.tipoRuedas = value; }
+        }
+
+
         public Moto(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible)
             : base(marca, modelo, añoFabricacion, tipoCombustible)
         {

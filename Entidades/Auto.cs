@@ -7,6 +7,18 @@ namespace Entidades
         private int numeroPuertas;
         private ETraccion traccion;
 
+        public int NumeroPuertas
+        {
+            get { return numeroPuertas; }
+            set { this.numeroPuertas = value; }
+        }
+
+        public ETraccion Traccion
+        {
+            get { return traccion; }
+            set { this.traccion = value; }
+        }
+
         public Auto(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible)
             : base(marca, modelo, añoFabricacion, tipoCombustible)
         {

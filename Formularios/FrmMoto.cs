@@ -11,15 +11,15 @@ using Entidades;
 
 namespace Formularios
 {
-    public partial class FrmAuto : FrmVehiculo
+    public partial class FrmMoto : FrmVehiculo
     {
-        private Entidades.Auto auto;
-        public Entidades.Auto Auto
+        private Entidades.Moto moto;
+        public Entidades.Moto Moto
         {
-            get { return this.auto; }
-            set { this.auto = value; }
+            get { return this.moto; }
+            set { this.moto = value; }
         }
-        public FrmAuto()
+        public FrmMoto()
         {
             InitializeComponent();
             Array arrayCombustible = Enum.GetValues(typeof(ETipoCombustible));
@@ -27,23 +27,23 @@ namespace Formularios
             {
                 this.cbCombustible.Items.Add(tipoCombustible);
             }
-            Array arrayTraccion = Enum.GetValues(typeof(ETraccion));
-            foreach (ETraccion traccion in arrayTraccion)
+            Array arrayRuedas = Enum.GetValues(typeof(ETipoRuedas));
+            foreach (ETipoRuedas ruedas in arrayRuedas)
             {
-                this.cbTraccion.Items.Add(traccion);
+                this.cbRuedas.Items.Add(ruedas);
             }
         }
 
-        public FrmAuto(Auto auto): this()
+        public FrmMoto(Moto moto) : this()
         {
-            this.auto = auto;
+            this.moto = moto;
 
-            this.txtMarca.Text = auto.Marca;
-            this.txtModelo.Text = auto.Modelo;
-            this.txtAñoFabricacion.Text = auto.AñoFabricacion.ToString();
-            this.cbCombustible.Text = auto.TipoCombustible.ToString();
-            this.txtNumPuertas.Text = auto.NumeroPuertas.ToString();
-            this.cbTraccion.Text = auto.Traccion.ToString();
+            this.txtMarca.Text = moto.Marca;
+            this.txtModelo.Text = moto.Modelo;
+            this.txtAñoFabricacion.Text = moto.AñoFabricacion.ToString();
+            this.cbCombustible.Text = moto.TipoCombustible.ToString();
+            this.txtCilindrada.Text = moto.Cilindrada.ToString();
+            this.cbRuedas.Text = moto.TipoRuedas.ToString();
 
         }
 
@@ -82,20 +82,20 @@ namespace Formularios
                 return;
             }
 
-            if (!int.TryParse(this.txtNumPuertas.Text, out int numeroPuertas))
+            if (!int.TryParse(this.txtCilindrada.Text, out int cilindrada))
             {
-                MessageBox.Show("Ingrese un numero de puertas valido por favor.");
+                MessageBox.Show("Ingrese una cilindrada valido por favor.");
                 return;
             }
 
-            ETraccion? traccion = this.cbTraccion.SelectedItem as ETraccion?;
-            if (traccion == null)
+            ETipoRuedas? ruedas = this.cbRuedas.SelectedItem as ETipoRuedas?;
+            if (ruedas == null)
             {
-                MessageBox.Show("Seleccione una tracción por favor.");
+                MessageBox.Show("Seleccione un tipo de ruedas por favor.");
                 return;
             }
 
-            auto = new Auto(numeroPuertas, traccion.Value, marca, modelo, añoFabricacion, tipoCombustible.Value);
+            Moto = new Moto(cilindrada, ruedas.Value, marca, modelo, añoFabricacion, tipoCombustible.Value);
             DialogResult = DialogResult.OK;
         }
     }

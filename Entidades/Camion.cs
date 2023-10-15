@@ -11,6 +11,18 @@ namespace Entidades
         private double cargaMaxima;
         private int numeroEjes;
 
+        public double CargaMaxima
+        {
+            get { return cargaMaxima; }
+            set { this.cargaMaxima = value; }
+        }
+
+        public int NumeroEjes
+        {
+            get { return numeroEjes; }
+            set { this.numeroEjes = value; }
+        }
+
         public Camion(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible)
             : base(marca, modelo, añoFabricacion, tipoCombustible)
         {

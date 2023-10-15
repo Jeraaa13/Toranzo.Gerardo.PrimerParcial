@@ -96,6 +96,7 @@
             btnAceptar.TabIndex = 12;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -109,6 +110,7 @@
             // 
             // cbCombustible
             // 
+            cbCombustible.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCombustible.FormattingEnabled = true;
             cbCombustible.Location = new Point(14, 218);
             cbCombustible.Name = "cbCombustible";

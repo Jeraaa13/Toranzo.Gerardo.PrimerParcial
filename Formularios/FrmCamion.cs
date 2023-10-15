@@ -11,15 +11,15 @@ using Entidades;
 
 namespace Formularios
 {
-    public partial class FrmAuto : FrmVehiculo
+    public partial class FrmCamion : FrmVehiculo
     {
-        private Entidades.Auto auto;
-        public Entidades.Auto Auto
+        private Entidades.Camion camion;
+        public Entidades.Camion Camion
         {
-            get { return this.auto; }
-            set { this.auto = value; }
+            get { return this.camion; }
+            set { this.camion = value; }
         }
-        public FrmAuto()
+        public FrmCamion()
         {
             InitializeComponent();
             Array arrayCombustible = Enum.GetValues(typeof(ETipoCombustible));
@@ -27,24 +27,18 @@ namespace Formularios
             {
                 this.cbCombustible.Items.Add(tipoCombustible);
             }
-            Array arrayTraccion = Enum.GetValues(typeof(ETraccion));
-            foreach (ETraccion traccion in arrayTraccion)
-            {
-                this.cbTraccion.Items.Add(traccion);
-            }
         }
 
-        public FrmAuto(Auto auto): this()
+        public FrmCamion(Camion camion) : this()
         {
-            this.auto = auto;
+            this.camion = camion;
 
-            this.txtMarca.Text = auto.Marca;
-            this.txtModelo.Text = auto.Modelo;
-            this.txtAñoFabricacion.Text = auto.AñoFabricacion.ToString();
-            this.cbCombustible.Text = auto.TipoCombustible.ToString();
-            this.txtNumPuertas.Text = auto.NumeroPuertas.ToString();
-            this.cbTraccion.Text = auto.Traccion.ToString();
-
+            this.txtMarca.Text = camion.Marca;
+            this.txtModelo.Text = camion.Modelo;
+            this.txtAñoFabricacion.Text = camion.AñoFabricacion.ToString();
+            this.cbCombustible.Text = camion.TipoCombustible.ToString();
+            this.txtCargaMaxima.Text = camion.CargaMaxima.ToString();
+            this.txtNumEjes.Text = camion.NumeroEjes.ToString();
         }
 
         private new void btnCancelar_Click(object sender, EventArgs e)
@@ -82,20 +76,17 @@ namespace Formularios
                 return;
             }
 
-            if (!int.TryParse(this.txtNumPuertas.Text, out int numeroPuertas))
+            if (!double.TryParse(this.txtCargaMaxima.Text, out double cargaMaxima))
             {
-                MessageBox.Show("Ingrese un numero de puertas valido por favor.");
-                return;
+                MessageBox.Show("Ingrese una carga maxima valida por favor.");
             }
 
-            ETraccion? traccion = this.cbTraccion.SelectedItem as ETraccion?;
-            if (traccion == null)
+            if (!int.TryParse(this.txtCargaMaxima.Text, out int numeroEjes))
             {
-                MessageBox.Show("Seleccione una tracción por favor.");
-                return;
+                MessageBox.Show("Ingrese un numero de ejes valido por favor.");
             }
 
-            auto = new Auto(numeroPuertas, traccion.Value, marca, modelo, añoFabricacion, tipoCombustible.Value);
+            camion = new Camion(cargaMaxima, numeroEjes, marca, modelo, añoFabricacion, tipoCombustible.Value);
             DialogResult = DialogResult.OK;
         }
     }
