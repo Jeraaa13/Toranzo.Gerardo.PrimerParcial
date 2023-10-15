@@ -1,4 +1,5 @@
 using System;
+using System.Security.Policy;
 using System.Text.Json;
 using Entidades;
 
@@ -6,7 +7,7 @@ namespace Formularios
 {
     public partial class FrmLogin : Form
     {
-        private Usuario[] usuarios;
+        private Usuario[]? usuarios;
 
         public FrmLogin()
         {
@@ -15,18 +16,18 @@ namespace Formularios
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            string path = "C:\\Users\\gerar\\source\\repos\\Toranzo.Gerardo\\Formularios\\MOCK_DATA.json";
+            string path = AppDomain.CurrentDomain.BaseDirectory;
 
-            string json;
+            path = Path.Combine(path, "MOCK_DATA.json");
 
             try
             {
                 using (StreamReader reader = new StreamReader(path))
                 {
-                    json = reader.ReadToEnd();
-                }
+                    string json = reader.ReadToEnd();
 
-                usuarios = JsonSerializer.Deserialize<Usuario[]>(json);
+                    usuarios = JsonSerializer.Deserialize<Usuario[]>(json);
+                }
             }
             catch (Exception ex)
             {
@@ -36,12 +37,32 @@ namespace Formularios
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            bool credencialesValidas = false;
+
             foreach (Usuario usuario in usuarios)
             {
                 if (txtCorreo.Text == usuario.correo && txtContraseña.Text == usuario.clave)
                 {
-                    this.Text = "Bienvenido";
+                    credencialesValidas = true;
+
+                    FrmCRUD crud = new FrmCRUD(this);
+                    crud.Show();
+                    this.Hide();
+
+                    break;
                 }
+            }
+
+            if (!credencialesValidas)
+            {
+                MessageBox.Show(
+                    "Credenciales invalidas",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                                );
+                txtContraseña.Clear();
+                txtCorreo.Clear();
             }
         }
     }

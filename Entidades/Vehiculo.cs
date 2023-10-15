@@ -24,7 +24,7 @@
         }
         public ETipoCombustible TipoCombustible
         {
-            get { return this.TipoCombustible; }
+            get { return this.tipoCombustible; }
             set { this.tipoCombustible = value; }
         }
 
@@ -52,8 +52,7 @@
 
         public override string ToString()
         {
-            return $"Marca: {Marca}, Modelo: {Modelo}, Año de Fabricación: {AñoFabricacion}, " +
-                $"Tipo de Combustible: {TipoCombustible}";
+            return $"Marca: {Marca}, Modelo: {Modelo}, Año de Fabricación: {AñoFabricacion}, Tipo de Combustible: {TipoCombustible}";
         }
 
         public override bool Equals(object? obj)

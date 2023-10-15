@@ -100,6 +100,7 @@
             Controls.Add(label1);
             Controls.Add(btnLogin);
             Name = "FrmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += FrmLogin_Load;
             ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿public enum ETipoCombustible
 {
     Gasolina,
-    Diésel,
-    Eléctrico,
-    Híbrido
+    Diesel,
+    Electrico,
+    Hibrido
 }
