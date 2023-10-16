@@ -77,7 +77,7 @@ namespace Formularios
             añoFabricacion = int.Parse(txtAñoFabricacion.Text);
             tipoCombustible = (ETipoCombustible)cbCombustible.SelectedItem;
 
-            auto = new Auto(numeroPuertas, traccion, marca, modelo, añoFabricacion, tipoCombustible);
+            this.auto = new Auto(numeroPuertas, traccion, marca, modelo, añoFabricacion, tipoCombustible);
 
             DialogResult = DialogResult.OK;
         }

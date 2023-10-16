@@ -39,7 +39,6 @@ namespace Formularios
                 if(resultado == DialogResult.OK)
                 {
                     vehiculo = frmauto.Auto;
-                    this.DialogResult = DialogResult.OK;
                 }
                 this.Hide();
             }
@@ -50,7 +49,6 @@ namespace Formularios
                 if (resultado == DialogResult.OK)
                 {
                     vehiculo = frmcamion.Camion;
-                    this.DialogResult = DialogResult.OK;
                 }
                 this.Hide();
             }
@@ -61,7 +59,6 @@ namespace Formularios
                 if (resultado == DialogResult.OK)
                 {
                     vehiculo = frmmoto.Moto;
-                    this.DialogResult = DialogResult.OK;
                 }
                 this.Hide();
             }
@@ -73,6 +70,7 @@ namespace Formularios
                                         MessageBoxIcon.Warning
                                         );
             }
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

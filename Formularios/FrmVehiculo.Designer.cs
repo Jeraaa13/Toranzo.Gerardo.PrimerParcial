@@ -142,6 +142,7 @@
             Controls.Add(txtMarca);
             Controls.Add(label1);
             Name = "FrmVehiculo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar un vehiculo";
             ResumeLayout(false);
             PerformLayout();

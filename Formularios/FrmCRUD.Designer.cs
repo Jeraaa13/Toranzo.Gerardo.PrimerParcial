@@ -35,13 +35,16 @@
             lblUsuario = new Label();
             lblFecha = new Label();
             btnOrdenar = new Button();
+            btnVisualizador = new Button();
+            btnSerializar = new Button();
+            btnDeserializar = new Button();
             SuspendLayout();
             // 
             // btnAgregar
             // 
             btnAgregar.Location = new Point(12, 238);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(89, 42);
+            btnAgregar.Size = new Size(89, 52);
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -49,9 +52,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(194, 238);
+            btnModificar.Location = new Point(150, 238);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 42);
+            btnModificar.Size = new Size(75, 52);
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -59,9 +62,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(357, 238);
+            btnEliminar.Location = new Point(274, 238);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(83, 42);
+            btnEliminar.Size = new Size(83, 52);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -96,19 +99,52 @@
             // 
             // btnOrdenar
             // 
-            btnOrdenar.Location = new Point(519, 238);
+            btnOrdenar.Location = new Point(407, 238);
             btnOrdenar.Name = "btnOrdenar";
-            btnOrdenar.Size = new Size(88, 42);
+            btnOrdenar.Size = new Size(88, 52);
             btnOrdenar.TabIndex = 6;
             btnOrdenar.Text = "Ordenar";
             btnOrdenar.UseVisualStyleBackColor = true;
             btnOrdenar.Click += btnOrdenar_Click;
             // 
+            // btnVisualizador
+            // 
+            btnVisualizador.Location = new Point(528, 4);
+            btnVisualizador.Name = "btnVisualizador";
+            btnVisualizador.Size = new Size(79, 23);
+            btnVisualizador.TabIndex = 7;
+            btnVisualizador.Text = "Visualizador";
+            btnVisualizador.UseVisualStyleBackColor = true;
+            btnVisualizador.Click += btnVisualizador_Click;
+            // 
+            // btnSerializar
+            // 
+            btnSerializar.Location = new Point(532, 238);
+            btnSerializar.Name = "btnSerializar";
+            btnSerializar.Size = new Size(75, 23);
+            btnSerializar.TabIndex = 8;
+            btnSerializar.Text = "Serializar";
+            btnSerializar.UseVisualStyleBackColor = true;
+            btnSerializar.Click += btnSerializar_Click;
+            // 
+            // btnDeserializar
+            // 
+            btnDeserializar.Location = new Point(532, 267);
+            btnDeserializar.Name = "btnDeserializar";
+            btnDeserializar.Size = new Size(75, 23);
+            btnDeserializar.TabIndex = 9;
+            btnDeserializar.Text = "Deserializar";
+            btnDeserializar.UseVisualStyleBackColor = true;
+            btnDeserializar.Click += btnDeserializar_Click;
+            // 
             // FrmCRUD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 292);
+            ClientSize = new Size(614, 297);
+            Controls.Add(btnDeserializar);
+            Controls.Add(btnSerializar);
+            Controls.Add(btnVisualizador);
             Controls.Add(btnOrdenar);
             Controls.Add(lblFecha);
             Controls.Add(lblUsuario);
@@ -135,5 +171,8 @@
         private Label lblUsuario;
         private Label lblFecha;
         private Button btnOrdenar;
+        private Button btnVisualizador;
+        private Button btnSerializar;
+        private Button btnDeserializar;
     }
 }

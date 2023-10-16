@@ -20,7 +20,7 @@ namespace Formularios
         public Garaje Garaje
         {
             get { return garaje; }
-            set { garaje = value; }
+            set { this.garaje = value; }
         }
 
         public bool Ascendente

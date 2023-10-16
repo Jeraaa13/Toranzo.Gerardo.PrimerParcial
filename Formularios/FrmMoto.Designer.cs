@@ -86,6 +86,7 @@
             Controls.Add(txtCilindrada);
             Controls.Add(label5);
             Name = "FrmMoto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar una moto";
             Controls.SetChildIndex(txtMarca, 0);
             Controls.SetChildIndex(txtModelo, 0);

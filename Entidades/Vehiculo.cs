@@ -1,4 +1,6 @@
-﻿namespace Entidades
+﻿using System.Text.Json.Serialization;
+
+namespace Entidades
 {
     public abstract class Vehiculo
     {
@@ -28,6 +30,7 @@
             set { this.tipoCombustible = value; }
         }
 
+        [JsonConstructor]
         public Vehiculo()
         {
             this.marca = "Default";

@@ -42,7 +42,7 @@ namespace Formularios
                 return false;
             }
 
-            if(string.IsNullOrWhiteSpace(modelo))
+            if (string.IsNullOrWhiteSpace(modelo))
             {
                 MessageBox.Show("Ingrese una modelo válido por favor.",
                     "Advertencia",
@@ -79,7 +79,7 @@ namespace Formularios
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

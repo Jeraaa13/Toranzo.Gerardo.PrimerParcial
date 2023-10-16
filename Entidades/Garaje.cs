@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
@@ -41,6 +42,11 @@ namespace Entidades
 
         public static bool operator ==(Garaje g1, Vehiculo v1)
         {
+            if (g1 is null)
+            {
+                return false; 
+            }
+
             return g1.vehiculos.Contains(v1);
         }
 
@@ -48,6 +54,7 @@ namespace Entidades
         {
             return !(g1 == v1);
         }
+
 
         public void OrdenarPorAñoDeFabricacion(bool ascendente)
         {
