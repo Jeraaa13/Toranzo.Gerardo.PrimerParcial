@@ -14,13 +14,15 @@ namespace Formularios
 {
     public partial class FrmCRUD : Form
     {
+        private Usuario usuario;
         private FrmLogin login;
         Garaje garaje = new Garaje();
-        public FrmCRUD(FrmLogin login)
+        public FrmCRUD(FrmLogin login, Usuario usuario)
         {
             InitializeComponent();
 
             this.login = login;
+            this.usuario = usuario;
         }
 
         private void FrmCRUD_FormClosed(object sender, FormClosedEventArgs e)
@@ -101,22 +103,22 @@ namespace Formularios
                         garaje.Vehiculos[index] = frmAuto.Auto;
                     }
                 }
-                else if(objeto is Moto)
+                else if (objeto is Moto)
                 {
-                    FrmMoto frmmoto = new FrmMoto((Moto)objeto);
+                    FrmMoto frmMoto = new FrmMoto((Moto)objeto);
 
-                    DialogResult resultado = frmmoto.ShowDialog();
+                    DialogResult resultado = frmMoto.ShowDialog();
                     if (resultado == DialogResult.OK)
                     {
-                        garaje.Vehiculos[index] = frmmoto.Moto;
+                        garaje.Vehiculos[index] = frmMoto.Moto;
                     }
                 }
-                else if(objeto is Camion)
+                else if (objeto is Camion)
                 {
                     FrmCamion frmcamion = new FrmCamion((Camion)objeto);
 
                     DialogResult resultado = frmcamion.ShowDialog();
-                    if(resultado == DialogResult.OK)
+                    if (resultado == DialogResult.OK)
                     {
                         garaje.Vehiculos[index] = frmcamion.Camion;
                     }
@@ -133,6 +135,12 @@ namespace Formularios
             {
                 this.lstbRead.Items.Add(v.ToString());
             }
+        }
+
+        private void FrmCRUD_Load(object sender, EventArgs e)
+        {
+            this.lblUsuario.Text = "Logueado como: " + usuario.nombre + " " + usuario.apellido;
+            this.lblFecha.Text = "Hoy es: " + DateTime.Now.ToShortDateString();
         }
     }
 }

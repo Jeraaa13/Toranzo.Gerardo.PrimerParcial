@@ -45,7 +45,7 @@ namespace Formularios
                 {
                     credencialesValidas = true;
 
-                    FrmCRUD crud = new FrmCRUD(this);
+                    FrmCRUD crud = new FrmCRUD(this, usuario);
                     crud.Show();
                     this.Hide();
 

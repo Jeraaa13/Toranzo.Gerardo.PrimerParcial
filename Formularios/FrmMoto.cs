@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Formularios
 {
     public partial class FrmMoto : FrmVehiculo
     {
-        private Entidades.Moto moto;
-        public Entidades.Moto Moto
+        private Moto moto;
+        public Moto Moto
         {
             get { return this.moto; }
             set { this.moto = value; }
@@ -38,6 +39,11 @@ namespace Formularios
         {
             this.moto = moto;
 
+            marca = moto.Marca;
+            modelo = moto.Modelo;
+            añoFabricacion = moto.AñoFabricacion;
+            tipoCombustible = moto.TipoCombustible;
+
             this.txtMarca.Text = moto.Marca;
             this.txtModelo.Text = moto.Modelo;
             this.txtAñoFabricacion.Text = moto.AñoFabricacion.ToString();
@@ -54,49 +60,40 @@ namespace Formularios
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string marca = this.txtMarca.Text;
-            string modelo = this.txtModelo.Text;
-
-            if (string.IsNullOrWhiteSpace(marca))
+            if(!ValidarDatos())
             {
-                MessageBox.Show("Ingrese una marca valida por favor.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(modelo))
-            {
-                MessageBox.Show("Ingrese un modelo valido por favor.");
-                return;
-            }
-
-            if (!int.TryParse(this.txtAñoFabricacion.Text, out int añoFabricacion))
-            {
-                MessageBox.Show("Ingrese un año de fabricacion valido por favor.");
-                return;
-            }
-
-            ETipoCombustible? tipoCombustible = this.cbCombustible.SelectedItem as ETipoCombustible?;
-            if (tipoCombustible == null)
-            {
-                MessageBox.Show("Seleccione un tipo de combustible por favor.");
                 return;
             }
 
             if (!int.TryParse(this.txtCilindrada.Text, out int cilindrada))
             {
-                MessageBox.Show("Ingrese una cilindrada valido por favor.");
+                MessageBox.Show("Ingrese una cilindrada válida por favor.",
+                                        "Advertencia",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
                 return;
             }
 
-            ETipoRuedas? ruedas = this.cbRuedas.SelectedItem as ETipoRuedas?;
-            if (ruedas == null)
+            if (this.cbRuedas.SelectedItem is ETipoRuedas ruedas)
             {
-                MessageBox.Show("Seleccione un tipo de ruedas por favor.");
-                return;
-            }
+                marca = txtMarca.Text;
+                modelo = txtModelo.Text;
+                añoFabricacion = int.Parse(txtAñoFabricacion.Text);
+                tipoCombustible = (ETipoCombustible)cbCombustible.SelectedItem;
 
-            Moto = new Moto(cilindrada, ruedas.Value, marca, modelo, añoFabricacion, tipoCombustible.Value);
-            DialogResult = DialogResult.OK;
+
+                moto = new Moto(cilindrada, ruedas, marca, modelo, añoFabricacion, tipoCombustible);
+
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una tracción por favor.",
+                                "Advertencia",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
         }
     }
+
 }

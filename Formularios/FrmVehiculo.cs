@@ -12,9 +12,59 @@ namespace Formularios
 {
     public partial class FrmVehiculo : Form
     {
+        protected string marca;
+        protected string modelo;
+        protected int añoFabricacion;
+        protected ETipoCombustible tipoCombustible;
+
         public FrmVehiculo()
         {
             InitializeComponent();
+        }
+
+        protected bool ValidarDatos()
+        {
+            string marca = txtMarca.Text;
+            string modelo = txtModelo.Text;
+
+
+            if (string.IsNullOrWhiteSpace(marca))
+            {
+                MessageBox.Show("Ingrese una marca válido por favor.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if(string.IsNullOrWhiteSpace(modelo))
+            {
+                MessageBox.Show("Ingrese una modelo válido por favor.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(txtAñoFabricacion.Text, out añoFabricacion))
+            {
+                MessageBox.Show("Ingrese un año de fabricación válido por favor.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (this.cbCombustible.SelectedItem is not ETipoCombustible tipoCombustible)
+            {
+                MessageBox.Show("Seleccione un tipo de combustible por favor.",
+                                "Advertencia",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
 
         public void btnCancelar_Click(object sender, EventArgs e)

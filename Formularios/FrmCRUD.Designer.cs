@@ -32,11 +32,13 @@
             btnModificar = new Button();
             btnEliminar = new Button();
             lstbRead = new ListBox();
+            lblUsuario = new Label();
+            lblFecha = new Label();
             SuspendLayout();
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 217);
+            btnAgregar.Location = new Point(12, 238);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(89, 42);
             btnAgregar.TabIndex = 0;
@@ -46,7 +48,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(276, 217);
+            btnModificar.Location = new Point(276, 238);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 42);
             btnModificar.TabIndex = 1;
@@ -56,9 +58,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(524, 217);
+            btnEliminar.Location = new Point(524, 238);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(83, 36);
+            btnEliminar.Size = new Size(83, 42);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -68,16 +70,36 @@
             // 
             lstbRead.FormattingEnabled = true;
             lstbRead.ItemHeight = 15;
-            lstbRead.Location = new Point(12, 12);
+            lstbRead.Location = new Point(12, 33);
             lstbRead.Name = "lstbRead";
             lstbRead.Size = new Size(595, 199);
             lstbRead.TabIndex = 3;
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Location = new Point(12, 9);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(94, 15);
+            lblUsuario.TabIndex = 4;
+            lblUsuario.Text = "Logueado como";
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.Location = new Point(194, 9);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(43, 15);
+            lblFecha.TabIndex = 5;
+            lblFecha.Text = "Hoy es";
             // 
             // FrmCRUD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 265);
+            ClientSize = new Size(619, 292);
+            Controls.Add(lblFecha);
+            Controls.Add(lblUsuario);
             Controls.Add(lstbRead);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
@@ -87,7 +109,9 @@
             Text = "CRUD";
             FormClosing += FrmCRUD_FormClosing;
             FormClosed += FrmCRUD_FormClosed;
+            Load += FrmCRUD_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -96,5 +120,7 @@
         protected Button btnModificar;
         protected Button btnEliminar;
         protected ListBox lstbRead;
+        private Label lblUsuario;
+        private Label lblFecha;
     }
 }
