@@ -12,20 +12,25 @@ namespace Formularios
 {
     public partial class FrmVehiculo : Form
     {
-        protected string marca;
-        protected string modelo;
+        protected string? marca;
+        protected string? modelo;
         protected int añoFabricacion;
         protected ETipoCombustible tipoCombustible;
 
         public FrmVehiculo()
         {
             InitializeComponent();
+            Array arrayCombustible = Enum.GetValues(typeof(ETipoCombustible));
+            foreach (ETipoCombustible tipoCombustible in arrayCombustible)
+            {
+                this.cbCombustible.Items.Add(tipoCombustible);
+            }
         }
 
         protected bool ValidarDatos()
         {
-            string marca = txtMarca.Text;
-            string modelo = txtModelo.Text;
+            marca = txtMarca.Text;
+            modelo = txtModelo.Text;
 
 
             if (string.IsNullOrWhiteSpace(marca))
@@ -67,7 +72,7 @@ namespace Formularios
             return true;
         }
 
-        public void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
         }

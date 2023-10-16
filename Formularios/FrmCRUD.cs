@@ -35,11 +35,11 @@ namespace Formularios
             FrmTipo frmtipo = new FrmTipo();
 
             DialogResult resultado = frmtipo.ShowDialog();
-            if (resultado == DialogResult.OK)
+            if (resultado == DialogResult.OK && frmtipo.Vehiculo != null)
             {
-                this.lstbRead.Items.Add(frmtipo.Vehiculo.ToString());
                 garaje += frmtipo.Vehiculo;
             }
+            ActualizarLstb();
         }
 
         private void FrmCRUD_FormClosing(object sender, FormClosingEventArgs e)
@@ -60,29 +60,10 @@ namespace Formularios
         {
             if (this.lstbRead.SelectedIndex != -1)
             {
-                object elementoSeleccionado = lstbRead.SelectedItem;
-                lstbRead.Items.Remove(elementoSeleccionado);
-
-                if (elementoSeleccionado is Auto)
-                {
-                    Auto autoseleccionado = (Auto)elementoSeleccionado;
-                    garaje -= autoseleccionado;
-                }
-                else if (elementoSeleccionado is Moto)
-                {
-                    Moto motoSeleccionada = (Moto)elementoSeleccionado;
-                    garaje -= motoSeleccionada;
-                }
-                else if (elementoSeleccionado is Camion)
-                {
-                    Camion camionSeleccionado = (Camion)elementoSeleccionado;
-                    garaje -= camionSeleccionado;
-                }
-                else
-                {
-
-                }
+                int index = lstbRead.SelectedIndex;
+                garaje -= garaje.Vehiculos[index];
             }
+            ActualizarLstb();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -90,14 +71,14 @@ namespace Formularios
             if (this.lstbRead.SelectedIndex != -1)
             {
                 int index = lstbRead.SelectedIndex;
-
                 object objeto = garaje.Vehiculos[index];
 
+                DialogResult resultado;
                 if (objeto is Auto)
                 {
                     FrmAuto frmAuto = new FrmAuto((Auto)objeto);
 
-                    DialogResult resultado = frmAuto.ShowDialog();
+                    resultado = frmAuto.ShowDialog();
                     if (resultado == DialogResult.OK)
                     {
                         garaje.Vehiculos[index] = frmAuto.Auto;
@@ -107,20 +88,21 @@ namespace Formularios
                 {
                     FrmMoto frmMoto = new FrmMoto((Moto)objeto);
 
-                    DialogResult resultado = frmMoto.ShowDialog();
+                    resultado = frmMoto.ShowDialog();
                     if (resultado == DialogResult.OK)
                     {
                         garaje.Vehiculos[index] = frmMoto.Moto;
+
                     }
                 }
                 else if (objeto is Camion)
                 {
-                    FrmCamion frmcamion = new FrmCamion((Camion)objeto);
+                    FrmCamion frmCamion = new FrmCamion((Camion)objeto);
 
-                    DialogResult resultado = frmcamion.ShowDialog();
+                    resultado = frmCamion.ShowDialog();
                     if (resultado == DialogResult.OK)
                     {
-                        garaje.Vehiculos[index] = frmcamion.Camion;
+                        garaje.Vehiculos[index] = frmCamion.Camion;
                     }
                 }
                 ActualizarLstb();
@@ -142,5 +124,25 @@ namespace Formularios
             this.lblUsuario.Text = "Logueado como: " + usuario.nombre + " " + usuario.apellido;
             this.lblFecha.Text = "Hoy es: " + DateTime.Now.ToShortDateString();
         }
+
+        private void btnOrdenar_Click(object sender, EventArgs e)
+        {
+            FrmOrdenarPor frmOrdenar = new FrmOrdenarPor(garaje);
+
+            DialogResult resultado = frmOrdenar.ShowDialog();
+            if (resultado == DialogResult.OK)
+            {
+                this.garaje = frmOrdenar.Garaje;
+                ActualizarLstb();
+            }
+            
+        }
+
+        private void ArchivarDatos()
+        {
+
+        }
+
+
     }
 }

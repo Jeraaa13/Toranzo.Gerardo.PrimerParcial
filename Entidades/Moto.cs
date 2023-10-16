@@ -19,6 +19,11 @@ namespace Entidades
             set { this.tipoRuedas = value; }
         }
 
+        public Moto()
+        {
+            this.cilindrada = 125;
+            this.tipoRuedas = ETipoRuedas.RuedasNormales;
+        }
 
         public Moto(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible)
             : base(marca, modelo, añoFabricacion, tipoCombustible)

@@ -19,6 +19,12 @@ namespace Entidades
             set { this.traccion = value; }
         }
 
+        public Auto()
+        {
+            this.numeroPuertas = 4;
+            this.traccion = ETraccion.Delantera;
+        }
+
         public Auto(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible)
             : base(marca, modelo, añoFabricacion, tipoCombustible)
         {
@@ -44,7 +50,6 @@ namespace Entidades
             this.numeroPuertas = numeroPuertas;
             this.traccion = traccion;
         }
-
         public override void Arrancar()
         {
             Console.WriteLine("El auto está arrancando.");
@@ -80,7 +85,5 @@ namespace Entidades
         {
             return !(a1 == a2);
         }
-
-
     }
 }

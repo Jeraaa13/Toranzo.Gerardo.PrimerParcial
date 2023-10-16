@@ -23,10 +23,16 @@ namespace Entidades
             set { this.numeroEjes = value; }
         }
 
+        public Camion()
+        {
+            this.cargaMaxima = 17000;
+            this.numeroEjes = 2;
+        }
+
         public Camion(string marca, string modelo, int añoFabricacion, ETipoCombustible tipoCombustible)
             : base(marca, modelo, añoFabricacion, tipoCombustible)
         {
-            this.cargaMaxima = 2000;
+            this.cargaMaxima = 17000;
             this.numeroEjes = 2;
         }
 

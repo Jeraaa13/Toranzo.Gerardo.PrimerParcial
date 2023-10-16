@@ -28,6 +28,13 @@
             set { this.tipoCombustible = value; }
         }
 
+        public Vehiculo()
+        {
+            this.marca = "Default";
+            this.modelo = "Default";
+            this.añoFabricacion = 2000;
+            this.tipoCombustible = ETipoCombustible.Gasolina;
+        }
         public Vehiculo(string marca, string modelo)
         {
             this.marca = marca;
@@ -70,8 +77,16 @@
             return v1.marca == v2.marca && v1.modelo == v2.modelo;
         }
 
-        public static bool operator !=(Vehiculo v1, Vehiculo v2)
+        public static bool operator !=(Vehiculo? v1, Vehiculo? v2)
         {
+            if (ReferenceEquals(v1, null) && ReferenceEquals(v2, null))
+            {
+                return false;
+            }
+            if (ReferenceEquals(v1, null) || ReferenceEquals(v2, null))
+            {
+                return true; 
+            }
             return !(v1 == v2);
         }
     }

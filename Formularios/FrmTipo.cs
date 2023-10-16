@@ -7,19 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace Formularios
 {
     public partial class FrmTipo : Form
     {
-        private Entidades.Vehiculo vehiculo;
-        private string eleccion;
+        private Vehiculo? vehiculo;
 
-        public string Eleccion
-        {
-            get { return this.eleccion; }
-        }
-        public Entidades.Vehiculo Vehiculo
+        public Vehiculo? Vehiculo
         {
             get { return this.vehiculo; }
         }
@@ -35,13 +31,13 @@ namespace Formularios
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            DialogResult resultado;
             if(this.rdbAuto.Checked)
             { 
                 FrmAuto frmauto = new FrmAuto();
-                DialogResult resultado = frmauto.ShowDialog();
+                resultado = frmauto.ShowDialog();
                 if(resultado == DialogResult.OK)
                 {
-                    eleccion = "Auto";
                     vehiculo = frmauto.Auto;
                     this.DialogResult = DialogResult.OK;
                 }
@@ -50,10 +46,9 @@ namespace Formularios
             else if(this.rdbCamion.Checked)
             {
                 FrmCamion frmcamion = new FrmCamion();
-                DialogResult resultado = frmcamion.ShowDialog();
+                resultado = frmcamion.ShowDialog();
                 if (resultado == DialogResult.OK)
                 {
-                    eleccion = "Camion";
                     vehiculo = frmcamion.Camion;
                     this.DialogResult = DialogResult.OK;
                 }
@@ -62,10 +57,9 @@ namespace Formularios
             else if (this.rdbMoto.Checked)
             {
                 FrmMoto frmmoto = new FrmMoto();
-                DialogResult resultado = frmmoto.ShowDialog();
+                resultado = frmmoto.ShowDialog();
                 if (resultado == DialogResult.OK)
                 {
-                    eleccion = "Moto";
                     vehiculo = frmmoto.Moto;
                     this.DialogResult = DialogResult.OK;
                 }

@@ -34,6 +34,7 @@
             lstbRead = new ListBox();
             lblUsuario = new Label();
             lblFecha = new Label();
+            btnOrdenar = new Button();
             SuspendLayout();
             // 
             // btnAgregar
@@ -48,7 +49,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(276, 238);
+            btnModificar.Location = new Point(194, 238);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 42);
             btnModificar.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(524, 238);
+            btnEliminar.Location = new Point(357, 238);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(83, 42);
             btnEliminar.TabIndex = 2;
@@ -93,11 +94,22 @@
             lblFecha.TabIndex = 5;
             lblFecha.Text = "Hoy es";
             // 
+            // btnOrdenar
+            // 
+            btnOrdenar.Location = new Point(519, 238);
+            btnOrdenar.Name = "btnOrdenar";
+            btnOrdenar.Size = new Size(88, 42);
+            btnOrdenar.TabIndex = 6;
+            btnOrdenar.Text = "Ordenar";
+            btnOrdenar.UseVisualStyleBackColor = true;
+            btnOrdenar.Click += btnOrdenar_Click;
+            // 
             // FrmCRUD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(619, 292);
+            Controls.Add(btnOrdenar);
             Controls.Add(lblFecha);
             Controls.Add(lblUsuario);
             Controls.Add(lstbRead);
@@ -122,5 +134,6 @@
         protected ListBox lstbRead;
         private Label lblUsuario;
         private Label lblFecha;
+        private Button btnOrdenar;
     }
 }

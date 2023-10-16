@@ -13,8 +13,8 @@ namespace Formularios
 {
     public partial class FrmCamion : FrmVehiculo
     {
-        private Entidades.Camion camion;
-        public Entidades.Camion Camion
+        private Camion camion;
+        public Camion Camion
         {
             get { return this.camion; }
             set { this.camion = value; }
@@ -22,23 +22,12 @@ namespace Formularios
         public FrmCamion()
         {
             InitializeComponent();
-            Array arrayCombustible = Enum.GetValues(typeof(ETipoCombustible));
-            foreach (ETipoCombustible tipoCombustible in arrayCombustible)
-            {
-                this.cbCombustible.Items.Add(tipoCombustible);
-            }
+
+            camion = new Camion();
         }
 
         public FrmCamion(Camion camion) : this()
         {
-            this.camion = camion;
-
-            marca = camion.Marca;
-            modelo = camion.Modelo;
-            añoFabricacion = camion.AñoFabricacion;
-            tipoCombustible = camion.TipoCombustible;
-
-
             this.txtMarca.Text = camion.Marca;
             this.txtModelo.Text = camion.Modelo;
             this.txtAñoFabricacion.Text = camion.AñoFabricacion.ToString();
@@ -47,7 +36,7 @@ namespace Formularios
             this.txtNumEjes.Text = camion.NumeroEjes.ToString();
         }
 
-        private new void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -68,7 +57,7 @@ namespace Formularios
                 return;
             }
 
-            if (!int.TryParse(this.txtCargaMaxima.Text, out int numeroEjes))
+            if (!int.TryParse(this.txtNumEjes.Text, out int numeroEjes))
             {
                 MessageBox.Show("Ingrese un numero de ejes valido por favor.",
                                         "Advertencia",

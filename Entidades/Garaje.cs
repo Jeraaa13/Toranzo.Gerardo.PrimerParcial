@@ -13,6 +13,7 @@ namespace Entidades
         public List<Vehiculo> Vehiculos
         {
             get { return vehiculos; }
+            set { vehiculos = value; }
         }
 
         public Garaje()
@@ -48,32 +49,29 @@ namespace Entidades
             return !(g1 == v1);
         }
 
-        public List<Vehiculo> OrdenarPorAñoDeFabricacion(bool ascendente)
+        public void OrdenarPorAñoDeFabricacion(bool ascendente)
         {
-            List<Vehiculo> retorno = this.vehiculos;
             if (ascendente)
             {
-                retorno = this.vehiculos.OrderBy(vehiculo => vehiculo.AñoFabricacion).ToList();
+                this.vehiculos = this.vehiculos.OrderBy(vehiculo => vehiculo.AñoFabricacion).ToList();
             }
             else
             {
-                retorno = this.vehiculos.OrderByDescending(vehiculo => vehiculo.AñoFabricacion).ToList();
+                this.vehiculos = this.vehiculos.OrderByDescending(vehiculo => vehiculo.AñoFabricacion).ToList();
             }
-            return retorno;
         }
 
-        public List<Vehiculo> OrdenarPorMarcaAlfabeticamente(bool ascendente)
+        public void OrdenarPorMarcaAlfabeticamente(bool ascendente)
         {
-            List<Vehiculo> retorno = this.vehiculos;
-            if(ascendente)
+            if (ascendente)
             {
-                retorno = this.vehiculos.OrderBy(vehiculo => vehiculo.Marca).ToList();
+                this.vehiculos = this.vehiculos.OrderBy(vehiculo => vehiculo.Marca).ToList();
             }
             else
             {
-                retorno = this.vehiculos.OrderByDescending(vehiculo => vehiculo.Marca).ToList();
+                this.vehiculos = this.vehiculos.OrderByDescending(vehiculo => vehiculo.Marca).ToList();
             }
-            return retorno;
         }
+
     }
 }

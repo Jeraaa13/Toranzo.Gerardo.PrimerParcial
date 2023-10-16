@@ -14,8 +14,8 @@ namespace Formularios
 
     public partial class FrmAuto : FrmVehiculo
     {
-        private Entidades.Auto auto;
-        public Entidades.Auto Auto
+        private Auto auto;
+        public Auto Auto
         {
             get { return this.auto; }
             set { this.auto = value; }
@@ -23,27 +23,17 @@ namespace Formularios
         public FrmAuto()
         {
             InitializeComponent();
-            Array arrayCombustible = Enum.GetValues(typeof(ETipoCombustible));
-            foreach (ETipoCombustible tipoCombustible in arrayCombustible)
-            {
-                this.cbCombustible.Items.Add(tipoCombustible);
-            }
             Array arrayTraccion = Enum.GetValues(typeof(ETraccion));
             foreach (ETraccion traccion in arrayTraccion)
             {
                 this.cbTraccion.Items.Add(traccion);
             }
+
+            auto = new Auto();
         }
 
         public FrmAuto(Auto auto): this()
         {
-            this.auto = auto;
-
-            marca = auto.Marca;
-            modelo = auto.Modelo;
-            añoFabricacion = auto.AñoFabricacion;
-            tipoCombustible = auto.TipoCombustible;
-
             this.txtMarca.Text = auto.Marca;
             this.txtModelo.Text = auto.Modelo;
             this.txtAñoFabricacion.Text = auto.AñoFabricacion.ToString();
@@ -52,7 +42,7 @@ namespace Formularios
             this.cbTraccion.Text = auto.Traccion.ToString();
         }
 
-        private new void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -73,24 +63,23 @@ namespace Formularios
                 return;
             }
 
-            if (this.cbTraccion.SelectedItem is ETraccion traccion)
-            {
-                marca = txtMarca.Text;
-                modelo = txtModelo.Text;
-                añoFabricacion = int.Parse(txtAñoFabricacion.Text);
-                tipoCombustible = (ETipoCombustible)cbCombustible.SelectedItem;
-
-                auto = new Auto(numeroPuertas, traccion, marca, modelo, añoFabricacion, tipoCombustible);
-
-                DialogResult = DialogResult.OK;
-            }
-            else
+            if (this.cbTraccion.SelectedItem is not ETraccion traccion)
             {
                 MessageBox.Show("Seleccione una tracción por favor.",
-            "Advertencia",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Warning);
+                                "Advertencia",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
             }
+
+            marca = txtMarca.Text;
+            modelo = txtModelo.Text;
+            añoFabricacion = int.Parse(txtAñoFabricacion.Text);
+            tipoCombustible = (ETipoCombustible)cbCombustible.SelectedItem;
+
+            auto = new Auto(numeroPuertas, traccion, marca, modelo, añoFabricacion, tipoCombustible);
+
+            DialogResult = DialogResult.OK;
         }
     }
 }
