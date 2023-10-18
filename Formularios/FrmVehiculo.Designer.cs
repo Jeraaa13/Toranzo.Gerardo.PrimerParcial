@@ -141,6 +141,8 @@
             Controls.Add(label2);
             Controls.Add(txtMarca);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmVehiculo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar un vehiculo";

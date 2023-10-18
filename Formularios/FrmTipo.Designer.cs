@@ -121,6 +121,8 @@
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimizeBox = false;
             Name = "FrmTipo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar un vehiculo";

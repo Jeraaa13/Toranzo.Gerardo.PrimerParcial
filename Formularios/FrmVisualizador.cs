@@ -10,8 +10,16 @@ using System.Windows.Forms;
 
 namespace Formularios
 {
+    /// <summary>
+    /// Formulario para visualizar registros de actividad de usuarios.
+    /// </summary>
     public partial class FrmVisualizador : Form
     {
+        /// <summary>
+        /// Constructor de la clase FrmVisualizador.
+        /// Carga y muestra registros de actividad de usuarios desde un archivo de registro especificado.
+        /// </summary>
+        /// <param name="logPath">Ruta del archivo de registro de actividad de usuarios.</param>
         public FrmVisualizador(string logPath)
         {
             InitializeComponent();
@@ -23,7 +31,7 @@ namespace Formularios
             }
             else
             {
-                lbVisualizador.Items.Add("El archivo de registo no existe.");
+                lbVisualizador.Items.Add("El archivo de registro no existe.");
             }
         }
     }

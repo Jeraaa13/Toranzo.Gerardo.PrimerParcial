@@ -12,14 +12,24 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Formularios
 {
+    /// <summary>
+    /// Formulario para la creación y edición de datos de motos.
+    /// </summary>
     public partial class FrmMoto : FrmVehiculo
     {
         private Moto moto;
+
+        /// <summary>
+        /// Obtiene o establece el objeto Moto creado o editado en el formulario.
+        /// </summary>
         public Moto Moto
         {
             get { return this.moto; }
             set { this.moto = value; }
         }
+        /// <summary>
+        /// Constructor predeterminado del formulario.
+        /// </summary>
         public FrmMoto()
         {
             InitializeComponent();
@@ -32,6 +42,9 @@ namespace Formularios
             moto = new Moto();
         }
 
+        /// <summary>
+        /// Constructor sobrecargado que permite editar una Moto existente.
+        /// </summary>
         public FrmMoto(Moto moto) : this()
         {
             this.txtMarca.Text = moto.Marca;
@@ -42,11 +55,19 @@ namespace Formularios
             this.cbRuedas.Text = moto.TipoRuedas.ToString();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Cancelar".
+        /// Cierra el formulario sin guardar cambios.
+        /// </summary>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Aceptar".
+        /// Valida los datos ingresados y crea una instancia de Moto.
+        /// </summary>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (!ValidarDatos())

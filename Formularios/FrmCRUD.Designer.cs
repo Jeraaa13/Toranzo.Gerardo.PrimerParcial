@@ -152,6 +152,8 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmCRUD";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRUD";

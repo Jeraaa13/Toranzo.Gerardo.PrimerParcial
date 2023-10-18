@@ -99,6 +99,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnLogin);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

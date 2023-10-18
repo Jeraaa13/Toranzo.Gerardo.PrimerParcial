@@ -15,11 +15,20 @@ using Newtonsoft.Json;
 
 namespace Formularios
 {
+    /// <summary>
+    /// Formulario principal de la aplicación para realizar operaciones CRUD en vehículos.
+    /// </summary>
     public partial class FrmCRUD : Form
     {
         private Usuario usuario;
         private FrmLogin login;
-        Garaje garaje = new Garaje();
+        private Garaje garaje = new Garaje();
+
+        /// <summary>
+        /// Constructor de la clase FrmCRUD.
+        /// </summary>
+        /// <param name="login">Formulario de inicio de sesión.</param>
+        /// <param name="usuario">Usuario autenticado.</param>
         public FrmCRUD(FrmLogin login, Usuario usuario)
         {
             InitializeComponent();
@@ -28,11 +37,19 @@ namespace Formularios
             this.usuario = usuario;
         }
 
+        /// <summary>
+        /// Evento que se dispara al cerrar el formulario.
+        /// Cierra el formulario de inicio de sesión.
+        /// </summary>
         private void FrmCRUD_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.login.Close();
         }
 
+        /// <summary>
+        /// Evento para agregar un nuevo vehículo.
+        /// Muestra un formulario para ingresar los detalles del vehículo y lo agrega al garaje.
+        /// </summary>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FrmTipo frmtipo = new FrmTipo();
@@ -45,6 +62,10 @@ namespace Formularios
             ActualizarLstb();
         }
 
+        /// <summary>
+        /// Evento que se dispara al cerrar el formulario.
+        /// Pregunta al usuario si está seguro de cerrar la aplicación.
+        /// </summary>
         private void FrmCRUD_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult resultado = MessageBox.Show("¿Esta seguro que desea cerrar?",
@@ -59,6 +80,10 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Evento para eliminar un vehículo seleccionado.
+        /// Elimina el vehículo seleccionado del garaje.
+        /// </summary>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (this.lstbRead.SelectedIndex != -1)
@@ -69,6 +94,10 @@ namespace Formularios
             ActualizarLstb();
         }
 
+        /// <summary>
+        /// Evento para modificar un vehículo seleccionado.
+        /// Permite modificar los detalles del vehículo seleccionado.
+        /// </summary>
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (this.lstbRead.SelectedIndex != -1)
@@ -112,6 +141,9 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Actualiza el contenido de la lista de vehículos en el formulario.
+        /// </summary>
         private void ActualizarLstb()
         {
             this.lstbRead.Items.Clear();
@@ -122,6 +154,10 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Evento que se dispara al cargar el formulario.
+        /// Realiza inicializaciones y carga de datos.
+        /// </summary>
         private void FrmCRUD_Load(object sender, EventArgs e)
         {
             this.lblUsuario.Text = "Logueado como: " + usuario.nombre + " " + usuario.apellido;
@@ -130,6 +166,10 @@ namespace Formularios
             ArchivarDatos();
         }
 
+        /// <summary>
+        /// Evento para ordenar los vehículos en el garaje.
+        /// Permite al usuario seleccionar un criterio de ordenación.
+        /// </summary>
         private void btnOrdenar_Click(object sender, EventArgs e)
         {
             if (lstbRead.Items.Count > 1)
@@ -149,6 +189,9 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Guarda un registro de acceso del usuario en un archivo de registro.
+        /// </summary>
         private void ArchivarDatos()
         {
             string logPath = "usuarios.log";
@@ -159,6 +202,9 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Muestra el formulario para visualizar registros de acceso.
+        /// </summary>
         private void btnVisualizador_Click(object sender, EventArgs e)
         {
             string logPath = "usuarios.log";
@@ -167,16 +213,25 @@ namespace Formularios
             frmVisualizador.Show();
         }
 
+        /// <summary>
+        /// Guarda la colección de vehículos en un archivo JSON.
+        /// </summary>
         private void btnSerializar_Click(object sender, EventArgs e)
         {
             ArchivarColeccion();
         }
 
+        /// <summary>
+        /// Carga una colección de vehículos desde un archivo JSON.
+        /// </summary>
         private void btnDeserializar_Click(object sender, EventArgs e)
         {
             CargarColeccion();
         }
 
+        /// <summary>
+        /// Guarda un registro de acceso del usuario en un archivo de registro.
+        /// </summary>
         private void ArchivarColeccion()
         {
             SaveFileDialog fileDialog = new SaveFileDialog();
@@ -206,6 +261,9 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Carga una colección de vehículos desde un archivo JSON.
+        /// </summary>
         private void CargarColeccion()
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -226,7 +284,7 @@ namespace Formularios
                     string json = File.ReadAllText(rutaArchivo);
                     garaje = JsonConvert.DeserializeObject<Garaje>(json, settings);
 
-                    ActualizarLstb(); // Asegúrate de actualizar tu lista después de la deserialización
+                    ActualizarLstb();
                 }
             }
             catch (Exception)
@@ -234,7 +292,5 @@ namespace Formularios
                 MessageBox.Show("Error al cargar los datos desde JSON", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

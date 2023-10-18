@@ -46,6 +46,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(515, 239);
             Controls.Add(lbVisualizador);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmVisualizador";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Visualizador";

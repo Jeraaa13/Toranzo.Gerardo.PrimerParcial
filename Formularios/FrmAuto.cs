@@ -11,15 +11,25 @@ using Entidades;
 
 namespace Formularios
 {
-
+    /// <summary>
+    /// Formulario para la creación y edición de datos de autos.
+    /// </summary>
     public partial class FrmAuto : FrmVehiculo
     {
         private Auto auto;
+
+        /// <summary>
+        /// Obtiene o establece el objeto Auto creado o editado en el formulario.
+        /// </summary>
         public Auto Auto
         {
             get { return this.auto; }
             set { this.auto = value; }
         }
+
+        /// <summary>
+        /// Constructor predeterminado del formulario.
+        /// </summary>
         public FrmAuto()
         {
             InitializeComponent();
@@ -32,7 +42,10 @@ namespace Formularios
             auto = new Auto();
         }
 
-        public FrmAuto(Auto auto): this()
+        /// <summary>
+        /// Constructor predeterminado del formulario.
+        /// </summary>
+        public FrmAuto(Auto auto) : this()
         {
             this.txtMarca.Text = auto.Marca;
             this.txtModelo.Text = auto.Modelo;
@@ -42,14 +55,22 @@ namespace Formularios
             this.cbTraccion.Text = auto.Traccion.ToString();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Cancelar".
+        /// Cierra el formulario sin guardar cambios.
+        /// </summary>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Aceptar".
+        /// Valida los datos ingresados y crea una instancia de Auto.
+        /// </summary>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(!ValidarDatos())
+            if (!ValidarDatos())
             {
                 return;
             }

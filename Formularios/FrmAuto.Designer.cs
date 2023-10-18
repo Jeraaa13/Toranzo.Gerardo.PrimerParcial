@@ -92,8 +92,9 @@
             Controls.Add(label5);
             Controls.Add(txtNumPuertas);
             Controls.Add(label4);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmAuto";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar un auto";
             Controls.SetChildIndex(cbCombustible, 0);
             Controls.SetChildIndex(txtMarca, 0);

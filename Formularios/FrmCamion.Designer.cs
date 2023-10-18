@@ -84,8 +84,7 @@
             Controls.Add(label6);
             Controls.Add(label5);
             Name = "FrmCamion";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Agregar un camion";
             Controls.SetChildIndex(txtMarca, 0);
             Controls.SetChildIndex(txtModelo, 0);
             Controls.SetChildIndex(txtAñoFabricacion, 0);

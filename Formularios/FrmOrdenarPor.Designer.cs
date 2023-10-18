@@ -97,6 +97,8 @@
             Controls.Add(btnAceptar);
             Controls.Add(cbAscDesc);
             Controls.Add(gbRadios);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FrmOrdenarPor";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ordenar";
