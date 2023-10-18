@@ -21,18 +21,31 @@ Esta aplicacion, es una herramienta de gestión de vehículos en un garaje. Perm
 2. Formulario Principal: Aquí encontrarás botones, una lista de vehiculos, y etiquetas que muestran tu nombre de usuario y la fecha actual. Puedes realizar las siguientes acciones:
 ![CRUD](./Screenshots/CRUD.PNG)
     **Visualizador**: Consulta tus registros de acceso.
-    ![Visualizador](./Screenshots/Visualizador.PNG)
+    
+    ![Visualizador](./Screenshots/visualizador.PNG)
+    
     **Serialización**: Elige cómo guardar.
+    
     ![Serializar](./Screenshots/serializar.PNG)
+    
     **Deserializar**: Elige como cargar tus datos.
+    
     ![Deserializar](./Screenshots/deserializar.PNG)
+    
     **Agregar/Modificar/Eliminar**: Administra tu colección de vehículos.
+    
     ![Opciones](./Screenshots/AgregarAuto.PNG)
+    
     ![Agregar](./Screenshots/AgregarUnAuto.PNG)
+    
     **Modificar**:
+    
     ![Modificar](./Screenshots/Modificar.PNG)
+    
     **Ordenar**: Organiza tus vehículos según tus preferencias.
+    
     ![OrdenarAsc](./Screenshots/OrdenadoAsc.PNG)
+    
     ![OrdenarDesc](./Screenshots/OrdenadoDesc.PNG)
 
 3. Salida Segura: Antes de salir, confirmaremos si deseas cerrar la aplicación.
