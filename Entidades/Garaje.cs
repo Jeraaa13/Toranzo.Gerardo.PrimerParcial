@@ -69,7 +69,7 @@ namespace Entidades
         /// <param name="g1">Garaje en el que se buscará el vehículo.</param>
         /// <param name="v1">Vehículo que se buscará en el garaje.</param>
         /// <returns>True si el vehículo está presente en el garaje, False en caso contrario.</returns>
-        public static bool operator ==(Garaje g1, Vehiculo v1)
+        public static bool operator ==(Garaje g1,Vehiculo v1)
         {
             if (g1 is null)
             {
